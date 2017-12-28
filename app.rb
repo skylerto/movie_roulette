@@ -31,7 +31,7 @@ class App < Sinatra::Base
         when "goodbye"
           respond_with = "See you later!"
         else
-          respond_with "I heard you say #{assistant.arguments[0].text_value}, but I don't know what that means."
+          respond_with = "I heard you say #{assistant.arguments[0].text_value}, but I don't know what that means."
         end
 
         assistant.tell(respond_with)
