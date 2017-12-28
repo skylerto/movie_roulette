@@ -4,22 +4,32 @@
       "description": "Default Welcome Intent",
       "name": "MAIN",
       "fulfillment": {
-        "conversationName": "<INSERT YOUR CONVERSATION NAME HERE>"
+        "conversationName": "movies-app"
       },
       "intent": {
-        "name": "actions.intent.MAIN",
+        "name": "actions.intent.MAIN"
+      }
+    },
+    {
+      "description": "Test intent",
+      "name": "test",
+      "fulfillment": {
+        "conversationName": "movies-app"
+      },
+      "intent": {
+        "name": "me.skylerlayne.TEST",
         "trigger": {
           "queryPatterns": [
-            "talk to <INSERT YOUR NAME HERE>"
+            "this is not a test"
           ]
         }
       }
     }
   ],
   "conversations": {
-    "<INSERT YOUR CONVERSATION NAME HERE>": {
-      "name": "<INSERT YOUR CONVERSATION NAME HERE>",
-      "url": "<INSERT YOUR FULLFILLMENT URL HERE>"
+    "movies-app": {
+      "name": "movies-app",
+      "url": "https://movie-roulette-api.herokuapp.com"
     }
   }
 }

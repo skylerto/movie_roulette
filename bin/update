@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gactions update --action_package action.json --project skylerto-ghome-df330
