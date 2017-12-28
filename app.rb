@@ -16,8 +16,8 @@ class App < Sinatra::Base
     assistant_response = GoogleAssistant.respond_to(data, response) do |assistant|
       assistant.intent.main do
         assistant.ask(
-          prompt: "<speak>Hi there! Say something, please.</speak>",
-          no_input_prompt: [
+          "<speak>Hi there! Say something, please.</speak>",
+          [
             "<speak>If you said something, I didn't hear you.</speak>",
             "<speak>Did you say something?</speak>"
           ]
