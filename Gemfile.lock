@@ -1,7 +1,12 @@
+GIT
+  remote: https://github.com/armilam/google-assistant-ruby
+  revision: f615838ecb60fa6f9b44bcd39d13e69b955d37ec
+  specs:
+    google_assistant (1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    google_assistant (1.0.0)
     mustermann (1.0.1)
     rack (2.0.3)
     rack-protection (2.0.0)
@@ -17,7 +22,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  google_assistant
+  google_assistant!
   sinatra
 
 BUNDLED WITH
