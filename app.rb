@@ -9,7 +9,7 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    puts request.body.read
+    puts request.body.read.keys
     puts response
     assistant_response = GoogleAssistant.respond_to(request.body.read, response) do |assistant|
       assistant.intent.main do
