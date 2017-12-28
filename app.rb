@@ -9,14 +9,14 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    puts request.body
+    puts request.body.read
     puts response
-    # assistant_response = GoogleAssistant.respond_to(params, response) do |assistant|
-    #   assistant.intent.main do
-    #     assistant.tell("<speak>I can respond, too!</speak>")
-    #   end
-    # end
+    assistant_response = GoogleAssistant.respond_to(request.body.read, response) do |assistant|
+      assistant.intent.main do
+        assistant.tell("<speak>I can respond, too!</speak>")
+      end
+    end
 
-    # render json: assistant_response
+    render json: assistant_response
   end
 end
