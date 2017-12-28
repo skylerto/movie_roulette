@@ -1,3 +1,5 @@
+$stdout.sync = true
+
 require 'sinatra'
 require 'google_assistant'
 
