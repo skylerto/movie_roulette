@@ -25,7 +25,16 @@ class App < Sinatra::Base
       end
 
       assistant.intent.text do
-        assistant.tell("<speak>I can respond, too!</speak>")
+        case assistant.arguments[0].text_value.downcase
+        when "hello"
+          respond_with = "Hi there!"
+        when "goodbye"
+          respond_with = "See you later!"
+        else
+          respond_with "I heard you say #{assistant.arguments[0].text_value}, but I don't know what that means."
+        end
+
+        assistant.tell(respond_with)
       end
     end
     json assistant_response
