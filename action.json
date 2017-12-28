@@ -1,0 +1,20 @@
+{
+  "actions": [
+    {
+      "description": "Default Welcome Intent",
+      "name": "MAIN",
+      "fulfillment": {
+        "conversationName": "movies-app"
+      },
+      "intent": {
+        "name": "actions.intent.MAIN"
+      }
+    }
+  ],
+  "conversations": {
+    "movies-app": {
+      "name": "movies-app",
+      "url": "https://movie-roulette-api.herokuapp.com"
+    }
+  }
+}
