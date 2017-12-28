@@ -10,15 +10,13 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    puts request.body.read
-    puts response
-    body = JSON.parse(request.body.read)
-    assistant_response = GoogleAssistant.respond_to(body, response) do |assistant|
+    content_type :json
+    data = JSON.parse(request.body.read)
+    assistant_response = GoogleAssistant.respond_to(data, response) do |assistant|
       assistant.intent.main do
         assistant.tell("<speak>I can respond, too!</speak>")
       end
     end
-
-    render json: assistant_response
+    assistant_response
   end
 end
