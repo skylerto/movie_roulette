@@ -1,9 +1,14 @@
+GIT
+  remote: https://github.com/armilam/google-assistant-ruby
+  revision: 46592dfffb37aa072e3f0980c1775d1db79179e9
+  branch: assistant-api-v2
+  specs:
+    google_assistant (2.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
     backports (3.11.0)
-    byebug (9.1.0)
-    google_assistant (1.0.0)
     json (2.1.0)
     multi_json (1.12.2)
     mustermann (1.0.1)
@@ -28,8 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug
-  google_assistant
+  google_assistant!
   json
   sinatra
   sinatra-contrib
