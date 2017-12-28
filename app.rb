@@ -7,6 +7,7 @@ end
 
 post '/' do
   puts params
+  puts response
   assistant_response = GoogleAssistant.respond_to(params, response) do |assistant|
     assistant.intent.main do
       assistant.ask(
