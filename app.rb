@@ -2,6 +2,7 @@ $stdout.sync = true
 
 require 'sinatra'
 require 'google_assistant'
+require 'json'
 
 class App < Sinatra::Base
   get '/' do
@@ -9,9 +10,10 @@ class App < Sinatra::Base
   end
 
   post '/' do
-    puts request.body.read.keys
+    puts request.body.read
     puts response
-    assistant_response = GoogleAssistant.respond_to(request.body.read, response) do |assistant|
+    body = JSON.parse(request.body.read)
+    assistant_response = GoogleAssistant.respond_to(body, response) do |assistant|
       assistant.intent.main do
         assistant.tell("<speak>I can respond, too!</speak>")
       end
