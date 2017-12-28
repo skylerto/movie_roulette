@@ -9,21 +9,6 @@
       "intent": {
         "name": "actions.intent.MAIN"
       }
-    },
-    {
-      "description": "Test intent",
-      "name": "test",
-      "fulfillment": {
-        "conversationName": "movies-app"
-      },
-      "intent": {
-        "name": "me.skylerlayne.TEST",
-        "trigger": {
-          "queryPatterns": [
-            "this is not a test"
-          ]
-        }
-      }
     }
   ],
   "conversations": {
