@@ -20,7 +20,7 @@ module MovieRoulette
       assistant_response = GoogleAssistant.respond_to(data, response) do |assistant|
         assistant.intent.main do
           assistant.ask(
-            "<speak>Hi there! Say something, please.</speak>",
+            "<speak>Hello, what genre would you like?</speak>",
             [
               "<speak>If you said something, I didn't hear you.</speak>",
               "<speak>Did you say something?</speak>"
@@ -29,14 +29,20 @@ module MovieRoulette
         end
 
         assistant.intent.text do
-          case assistant.arguments[0].text_value.downcase
-          when "hello"
-            respond_with = "Hi there!"
-          when "goodbye"
-            respond_with = "See you later!"
-          else
-            respond_with = "I heard you say #{assistant.arguments[0].text_value}, but I don't know what that means."
-          end
+          genre = Genre.find(name: assistant.arguments[0].text_value.downcase)
+          movies = Movie.find(genre: genre)
+          number = rand(movies.size)
+          movie = movies[number]
+          respond_with = "How about #{movie.title}?"
+
+          # case assistant.arguments[0].text_value.downcase
+          # when "hello"
+          #   respond_with = "Hi there!"
+          # when "goodbye"
+          #   respond_with = "See you later!"
+          # else
+          #   respond_with = "I heard you say #{assistant.arguments[0].text_value}, but I don't know what that means."
+          # end
 
           assistant.tell(respond_with)
         end
