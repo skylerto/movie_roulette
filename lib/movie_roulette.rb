@@ -30,21 +30,30 @@ module MovieRoulette
 
         assistant.intent.text do
           genre = Genre.find(name: assistant.arguments[0].text_value.downcase)
+          if genre.nil?
+            respond_with = 'I could not find the genre you were looking for'
+            assistant.tell(respond_with)
+            return
+          end
+
           movies = Movie.find(genre: genre)
+          if movies.nil?
+            respond_with = "I could not find anything in the genre #{genre.name}, try another genre?"
+            assistant.ask(respond_with)
+            return
+          end
+
           number = rand(movies.size)
           movie = movies[number]
+          if movie.nil?
+            respond_with = "I could not find anything in the genre #{genre.name}, try another genre?"
+            assistant.ask(respond_with)
+            return
+          end
+
           respond_with = "How about #{movie.title}?"
-
-          # case assistant.arguments[0].text_value.downcase
-          # when "hello"
-          #   respond_with = "Hi there!"
-          # when "goodbye"
-          #   respond_with = "See you later!"
-          # else
-          #   respond_with = "I heard you say #{assistant.arguments[0].text_value}, but I don't know what that means."
-          # end
-
           assistant.tell(respond_with)
+          return
         end
       end
       json assistant_response
