@@ -58,11 +58,14 @@ module MovieRoulette
 
             assistant.ask(respond_with, [respond_with])
           elsif assistant.conversation.state == "movie chosen"
+            puts assistant.conversation.state
             case assistant.arguments[0].text_value.downcase
             when 'tell me more'
               movie_title = assistant.conversation.data['movie']
+              puts movie_title
               movie = Movie.find(title: movie_title)
-              respond_with = "#{movie.description}, how does that sound?"
+              puts movie.inspect
+              respond_with = "#{movie.overview}, how does that sound?"
               assistant.ask(respond_with, [respond_with])
             end
           end
