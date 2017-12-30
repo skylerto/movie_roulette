@@ -65,6 +65,8 @@ module MovieRoulette
               puts movie_title
               movie = Movie.find(title: movie_title)
               puts movie.inspect
+              assistant.conversation.state = "movie chosen"
+              assistant.conversation.data["movie"] = movie.title
               respond_with = "#{movie.overview}, how does that sound?"
               assistant.ask(respond_with, [respond_with])
             when 'no', 'something else'
