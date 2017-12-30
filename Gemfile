@@ -5,3 +5,5 @@ gem 'google_assistant', git: 'https://github.com/armilam/google-assistant-ruby',
 gem 'json'
 # gem 'byebug'
 gem 'sinatra-contrib'
+
+gem 'rspec'

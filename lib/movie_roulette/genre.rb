@@ -1,7 +1,7 @@
 class Genre
   attr_accessor :id, :name
 
-  def initailize(id:, name:, hash: nil)
+  def initialize(id: nil, name: nil, hash: nil)
     @id = id
     @name = name
     if hash
