@@ -67,6 +67,18 @@ module MovieRoulette
               puts movie.inspect
               respond_with = "#{movie.overview}, how does that sound?"
               assistant.ask(respond_with, [respond_with])
+            when 'no', 'something else'
+              assistant.conversation.state = "asking genre"
+              assistant.ask(
+                "<speak>Hello, what genre would you like?</speak>",
+                [
+                  "<speak>If you said something, I didn't hear you.</speak>",
+                  "<speak>Did you say something?</speak>"
+                ]
+              )
+              assistant.conversation.data['movie'] = nil
+            else
+              assistant.tell('Lets try again later')
             end
           end
         end
