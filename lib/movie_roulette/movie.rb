@@ -1,9 +1,12 @@
 class Movie
   attr_accessor :title, :overview
-  def initialize(hash: nil)
+  def initialize(hash: nil, movie: nil)
     if hash
       @title = hash['title']
       @overview = hash['overview']
+    elsif movie
+      @title = movie.title
+      @overview = movie.overview
     end
   end
 
@@ -17,7 +20,7 @@ class Movie
     elsif title
       movie = Tmdb::Movie.find(title.downcase)
       movie = movie.first unless movie.empty?
-      movie = Movie.new(hash: movie) if movie
+      movie = Movie.new(movie: movie) if movie
     end
   end
 end
