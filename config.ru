@@ -1,2 +1,2 @@
-require "./app"
-run App
+require "./lib/movie_roulette"
+run MovieRoulette

@@ -5,7 +5,7 @@ require 'google_assistant'
 require 'json'
 require 'sinatra/json'
 
-class App < Sinatra::Base
+class MovieRoulette < Sinatra::Base
   get '/' do
     'Hello world!'
   end
