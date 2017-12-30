@@ -1,2 +1,4 @@
 creds.data
 .byebug_history
+secrets.yaml
+.rspec_status

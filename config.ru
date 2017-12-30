@@ -1,2 +1,2 @@
 require "./lib/movie_roulette"
-run MovieRoulette
+run MovieRoulette::App
