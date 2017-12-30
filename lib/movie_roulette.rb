@@ -33,14 +33,14 @@ module MovieRoulette
           if genre.nil?
             respond_with = 'I could not find the genre you were looking for'
             assistant.ask("<speak>#{respond_with}</speak>")
-            return
+            break
           end
 
           movies = Movie.find(genre: genre)
           if movies.nil?
             respond_with = "I could not find anything in the genre #{genre.name}, try another genre?"
             assistant.ask("<speak>#{respond_with}</speak>")
-            return
+            break
           end
 
           number = rand(movies.size)
@@ -48,12 +48,12 @@ module MovieRoulette
           if movie.nil?
             respond_with = "I could not find anything in the genre #{genre.name}, try another genre?"
             assistant.ask("<speak>#{respond_with}</speak>")
-            return
+            break
           end
 
           respond_with = "How about #{movie.title}?"
           assistant.tell(respond_with)
-          return
+          break
         end
       end
       json assistant_response
