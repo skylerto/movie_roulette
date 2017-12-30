@@ -15,8 +15,9 @@ class Movie
       results.each { |r| res << Movie.new(hash: r) } if results
       return res
     elsif title
-      movies = Tmdb::Movie.find(title.downcase)
-      movie = Movie.new(hash: movies.first) unless movies.empty?
+      movie = Tmdb::Movie.find(title.downcase)
+      movie = movie.first unless movie.empty?
+      movie = Movie.new(hash: movie) if movie
     end
   end
 end
