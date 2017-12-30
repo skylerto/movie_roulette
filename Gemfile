@@ -7,3 +7,4 @@ gem 'json'
 gem 'sinatra-contrib'
 
 gem 'rspec'
+gem 'themoviedb'

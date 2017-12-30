@@ -4,6 +4,8 @@ require 'sinatra'
 require 'google_assistant'
 require 'json'
 require 'sinatra/json'
+require 'movie_roulette/genre'
+require 'movie_roulette/config'
 
 class MovieRoulette < Sinatra::Base
   get '/' do
