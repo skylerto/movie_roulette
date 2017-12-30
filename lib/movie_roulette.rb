@@ -32,14 +32,14 @@ module MovieRoulette
           genre = Genre.find(name: assistant.arguments[0].text_value.downcase)
           if genre.nil?
             respond_with = 'I could not find the genre you were looking for'
-            assistant.tell(respond_with)
+            assistant.ask("<speak>#{respond_with}</speak>")
             return
           end
 
           movies = Movie.find(genre: genre)
           if movies.nil?
             respond_with = "I could not find anything in the genre #{genre.name}, try another genre?"
-            assistant.ask(respond_with)
+            assistant.ask("<speak>#{respond_with}</speak>")
             return
           end
 
@@ -47,7 +47,7 @@ module MovieRoulette
           movie = movies[number]
           if movie.nil?
             respond_with = "I could not find anything in the genre #{genre.name}, try another genre?"
-            assistant.ask(respond_with)
+            assistant.ask("<speak>#{respond_with}</speak>")
             return
           end
 
