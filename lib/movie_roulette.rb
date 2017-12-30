@@ -77,6 +77,8 @@ module MovieRoulette
             else
               assistant.tell('Lets try again later')
             end
+          else
+            assistant.tell('Lets try again later')
           end
         end
       end
