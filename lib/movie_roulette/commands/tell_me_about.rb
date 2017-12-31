@@ -8,7 +8,7 @@ class TellMeAbout
     @assistant.conversation.data['movie'] = movie_title
     puts "Looking up #{movie_title}"
     movie = Movie.find(title: movie_title)
-    method = @assistant.arguments[0].text_value.downcase.gsub(' ', '_')
+    method = @assistant.arguments[0].text_value.downcase.gsub(' ', '_').strip
     if movie.options.include?(method)
       puts "Attempting #{method} on #{movie.inspect}"
       res = movie.send(method.to_sym)

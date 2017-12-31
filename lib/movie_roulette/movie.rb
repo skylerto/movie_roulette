@@ -6,6 +6,8 @@ class Movie < Tmdb::Movie
       @overview = hash['overview']
     elsif movie
       @movie = movie
+      @title = movie.title
+      @overview = movie.overview
     end
   end
 
