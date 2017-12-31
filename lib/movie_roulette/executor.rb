@@ -1,6 +1,7 @@
 require_relative 'commands/main'
 require_relative 'commands/genre_selection'
 require_relative 'commands/tell_me_more'
+require_relative 'commands/tell_me_about'
 
 module Executor
   class << self
@@ -27,7 +28,8 @@ module Executor
               respond_with = 'What genre would you like?'
               assistant.ask(respond_with, [respond_with])
             else
-              assistant.tell('Lets try again later')
+              TellMeAbout.new(assistant).execute
+              # assistant.tell('Lets try again later')
             end
           else
             assistant.tell('Lets try again later')
