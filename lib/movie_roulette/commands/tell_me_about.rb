@@ -12,9 +12,9 @@ class TellMeAbout
     if movie.options.include?(method)
       res = movie.send(method.to_s)
       respond_with = "#{res}, how does that sound?"
-      @assistant.ask(respond_with, [respond_with])
+      return @assistant.ask(respond_with, [respond_with])
     else
-      @assistant.tell('Lets try again later')
+      return @assistant.tell('Lets try again later')
     end
   end
 end
