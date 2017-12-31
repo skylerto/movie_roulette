@@ -6,6 +6,7 @@ require_relative 'commands/tell_me_about'
 module Executor
   class << self
     def execute(data, response)
+      puts data
       assistant_response = GoogleAssistant.respond_to(data, response) do |assistant|
         assistant.intent.main do
           assistant.conversation.state = 'asking genre'
