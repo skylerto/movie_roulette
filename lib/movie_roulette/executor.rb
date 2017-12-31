@@ -1,5 +1,6 @@
 require_relative 'commands/main'
 require_relative 'commands/genre_selection'
+require_relative 'commands/tell_me_more'
 
 module Executor
   class << self
@@ -14,18 +15,12 @@ module Executor
           if assistant.conversation.state == 'asking genre'
             assistant.conversation.state = 'movie chosen'
             GenreSelection.new(assistant).execute
-          elsif assistant.conversation.state == "movie chosen"
+          elsif assistant.conversation.state == 'movie chosen'
             puts assistant.conversation.state
             case assistant.arguments[0].text_value.downcase
             when 'tell me more'
-              movie_title = assistant.conversation.data['movie']
-              puts movie_title
-              movie = Movie.find(title: movie_title)
-              puts movie.inspect
-              assistant.conversation.state = "movie chosen"
-              assistant.conversation.data["movie"] = movie.title
-              respond_with = "#{movie.overview}, how does that sound?"
-              assistant.ask(respond_with, [respond_with])
+              assistant.conversation.state = 'movie chosen'
+              TellMeMore.new(assistant).execute
             when 'something else'
               assistant.conversation.state = "asking genre"
               assistant.conversation.data['movie'] = nil
