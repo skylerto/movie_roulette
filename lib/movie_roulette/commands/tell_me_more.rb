@@ -24,6 +24,6 @@ class TellMeMore
   end
 
   def clean(option)
-    options.gsub('_', ' ')
+    option.gsub('_', ' ')
   end
 end
