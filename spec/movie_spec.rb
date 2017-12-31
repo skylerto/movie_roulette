@@ -8,7 +8,6 @@ RSpec.describe Movie do
 
   it 'should grab a movie based on the title' do
     movie = Movie.find title: 'san andres'
-    byebug
     expect(movie).not_to be nil
   end
 end
