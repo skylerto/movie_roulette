@@ -28,6 +28,7 @@ module Executor
               respond_with = 'What genre would you like?'
               assistant.ask(respond_with, [respond_with])
             else
+              assistant.conversation.state = 'movie chosen'
               TellMeAbout.new(assistant).execute
               # assistant.tell('Lets try again later')
             end
