@@ -8,3 +8,4 @@ gem 'sinatra-contrib'
 
 gem 'rspec'
 gem 'themoviedb'
+gem 'rake'
