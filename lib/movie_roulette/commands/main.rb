@@ -4,7 +4,6 @@ class MainCommand
   end
 
   def execute
-    @assistant.conversation.state = "asking genre"
     @assistant.ask(
       "<speak>Hello, what genre would you like?</speak>",
       [
