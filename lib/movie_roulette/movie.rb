@@ -1,13 +1,26 @@
-class Movie
+class Movie < Tmdb::Movie
   attr_accessor :title, :overview
   def initialize(hash: nil, movie: nil)
     if hash
       @title = hash['title']
       @overview = hash['overview']
     elsif movie
+      @movie = movie
       @title = movie.title
       @overview = movie.overview
     end
+  end
+
+  def option(option)
+    @movie.send(option.to_sym)
+  end
+
+  def method_missing(method, *args, &block)
+    @movie.send(method, *args, &block) if @movie
+  end
+
+  def options
+    @movie.instance_variables.map { |i| i.to_s.gsub(':', '').gsub('@', '') }
   end
 
   def self.find(genre: nil, title: nil)

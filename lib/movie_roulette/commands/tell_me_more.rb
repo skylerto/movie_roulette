@@ -5,10 +5,27 @@ class TellMeMore
 
   def execute
     movie_title = @assistant.conversation.data['movie']
+    @assistant.conversation.data['movie'] = movie_title
+
+    puts "Looking up #{movie_title}"
     movie = Movie.find(title: movie_title)
-    puts movie.inspect
-    @assistant.conversation.data['movie'] = movie.title
-    respond_with = "#{movie.overview}, how does that sound?"
+    respond_with = "What would you like to know more about? I know #{options movie}"
     @assistant.ask(respond_with, [respond_with])
+  end
+
+  def options(movie)
+    data = ''
+    movie.options.each_with_index do |opt, i|
+      if i.eql?(movie.options.size - 1)
+        data << "or #{clean opt}"
+      else
+        data << "#{clean opt}, "
+      end
+    end
+    data
+  end
+
+  def clean(option)
+    option.gsub('_', ' ')
   end
 end

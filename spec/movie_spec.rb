@@ -10,4 +10,9 @@ RSpec.describe Movie do
     movie = Movie.find title: 'san andres'
     expect(movie).not_to be nil
   end
+
+  it 'should list available options' do
+    movie = Movie.find title: 'san andres'
+    expect(movie).not_to be nil
+  end
 end
