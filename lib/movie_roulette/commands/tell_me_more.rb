@@ -12,6 +12,18 @@ class TellMeMore
   end
 
   def options(movie)
-    movie.options.join(', ')
+    data = ''
+    movie.options.each_with_index do |opt, i|
+      if i.eql?(movie.options.size - 1)
+        data << "or #{clean opt}"
+      else
+        data << "#{clean opt}, "
+      end
+    end
+    data
+  end
+
+  def clean(option)
+    options.gsub('_', ' ')
   end
 end
