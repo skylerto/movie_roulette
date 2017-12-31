@@ -5,6 +5,7 @@ class TellMeAbout
 
   def execute
     movie_title = @assistant.conversation.data['movie']
+    puts "Looking up #{movie_title}"
     movie = Movie.find(title: movie_title)
     @assistant.conversation.data['movie'] = movie.title
     method = @assistant.arguments[0].text_value.downcase.gsub(' ', '_')
@@ -13,7 +14,7 @@ class TellMeAbout
       respond_with = "#{res}, how does that sound?"
       @assistant.ask(respond_with, [respond_with])
     else
-      assistant.tell('Lets try again later')
+      @assistant.tell('Lets try again later')
     end
   end
 end

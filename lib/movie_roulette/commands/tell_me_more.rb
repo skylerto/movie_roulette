@@ -5,6 +5,7 @@ class TellMeMore
 
   def execute
     movie_title = @assistant.conversation.data['movie']
+    puts "Looking up #{movie_title}"
     movie = Movie.find(title: movie_title)
     @assistant.conversation.data['movie'] = movie.title
     respond_with = "What would you like to know more about? I know #{options movie}"
