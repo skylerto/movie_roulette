@@ -25,7 +25,6 @@ module Executor
               TellMeMore.new(assistant).execute
             elsif input == 'something else'
               assistant.conversation.state = "asking genre"
-              assistant.conversation.data['movie'] = nil
               respond_with = 'What genre would you like?'
               assistant.ask(respond_with, [respond_with])
             else

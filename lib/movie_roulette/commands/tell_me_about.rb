@@ -5,9 +5,9 @@ class TellMeAbout
 
   def execute
     movie_title = @assistant.conversation.data['movie']
+    @assistant.conversation.data['movie'] = movie_title
     puts "Looking up #{movie_title}"
     movie = Movie.find(title: movie_title)
-    @assistant.conversation.data['movie'] = movie.title
     method = @assistant.arguments[0].text_value.downcase.gsub(' ', '_')
     if movie.options.include?(method)
       res = movie.send(method.to_s)
