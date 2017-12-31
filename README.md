@@ -1,4 +1,4 @@
-![alt text](https://raw.githubusercontent.com/skylerto/movie_roulette/master/img/roulette_wheel.png)
+![alt text](https://raw.githubusercontent.com/skylerto/movie_roulette/master/img/roulette_wheel_50.png)
 
 # Movie Roulette
 
