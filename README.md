@@ -22,3 +22,12 @@ You: You me more
 Home: I can tell you about ... What would you like to know?
 You: overview
 Home: ... how does that sound?
+
+### Environment Variables
+
+To use, you will need to set an environment variable to access The MovieDB API,
+you can find more information about getting an API key [here](https://developers.themoviedb.org/3/getting-started/introduction).
+
+```
+export MOVIEDB_API_KEY=<your api key>
+```
