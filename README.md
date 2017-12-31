@@ -2,6 +2,8 @@
 
 # Movie Roulette
 
+[![Build Status](https://travis-ci.org/skylerto/movie_roulette.svg?branch=master)](https://travis-ci.org/skylerto/movie_roulette)
+
 Movie roulette is a [Google Actions](https://developers.google.com/actions/)
 Application.
 
