@@ -18,11 +18,11 @@ module Executor
             GenreSelection.new(assistant).execute
           elsif assistant.conversation.state == 'movie chosen'
             puts assistant.conversation.state
-            case assistant.arguments[0].text_value.downcase
-            when 'tell me more'
+            input = assistant.arguments[0].text_value.downcase
+            if input == 'tell me more'
               assistant.conversation.state = 'movie chosen'
               TellMeMore.new(assistant).execute
-            when 'something else'
+            elsif input == 'something else'
               assistant.conversation.state = "asking genre"
               assistant.conversation.data['movie'] = nil
               respond_with = 'What genre would you like?'
@@ -32,6 +32,9 @@ module Executor
               TellMeAbout.new(assistant).execute
               # assistant.tell('Lets try again later')
             end
+          elsif assistant.conversation.state == 'learning'
+            assistant.conversation.state = 'movie chosen'
+            TellMeAbout.new(assistant).execute
           else
             assistant.tell('Lets try again later')
           end
