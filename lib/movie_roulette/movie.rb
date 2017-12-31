@@ -11,6 +11,10 @@ class Movie < Tmdb::Movie
     end
   end
 
+  def option(option)
+    @movie.send(option.to_sym)
+  end
+
   def method_missing(method, *args, &block)
     @movie.send(method, *args, &block) if @movie
   end

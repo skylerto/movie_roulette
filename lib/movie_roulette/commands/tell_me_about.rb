@@ -9,9 +9,10 @@ class TellMeAbout
     puts "Looking up #{movie_title}"
     movie = Movie.find(title: movie_title)
     method = @assistant.arguments[0].text_value.downcase.gsub(' ', '_').strip
+
     if movie.options.include?(method)
       puts "Attempting #{method} on #{movie.inspect}"
-      res = movie.send(method.to_sym)
+      res = movie.option(method)
       respond_with = "#{res}, how does that sound?"
       return @assistant.ask(respond_with, [respond_with])
     else
