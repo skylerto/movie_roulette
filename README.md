@@ -14,6 +14,7 @@ no idea what you want to watch.
 
 Sample dialog:
 
+```
 Init: Talk to Movie Roulette
 Home: What genre would you like?
 You: action
@@ -22,6 +23,7 @@ You: You me more
 Home: I can tell you about ... What would you like to know?
 You: overview
 Home: ... how does that sound?
+```
 
 ### Environment Variables
 
