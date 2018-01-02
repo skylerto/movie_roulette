@@ -19,7 +19,7 @@ Init: Talk to Movie Roulette
 Home: What genre would you like?
 You: action
 Home: How about Big Hero 6?
-You: You me more
+You: Tell me more
 Home: I can tell you about ... What would you like to know?
 You: overview
 Home: ... how does that sound?
